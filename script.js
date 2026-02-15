@@ -8,7 +8,7 @@ scrollTopBtn.style.cssText = `
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: #eea94a;
+    background: #ffc107;
     border: none;
     color: #1a1a1a;
     cursor: pointer;
@@ -29,12 +29,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-scrollTopBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
 
 scrollTopBtn.addEventListener("mouseenter", () => {
   scrollTopBtn.style.transform = "scale(1.1)";
@@ -43,3 +37,33 @@ scrollTopBtn.addEventListener("mouseenter", () => {
 scrollTopBtn.addEventListener("mouseleave", () => {
   scrollTopBtn.style.transform = "scale(1)";
 });
+
+
+
+scrollTopBtn.addEventListener("click", () => {
+  smoothScrollToTop(1000); // duration in ms
+});
+
+function smoothScrollToTop(duration) {
+  const start = window.scrollY;
+  const startTime = performance.now();
+
+  function easeOutCubic(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = easeOutCubic(progress);
+
+    window.scrollTo(0, start * (1 - eased));
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
