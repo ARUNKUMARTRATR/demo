@@ -100,10 +100,12 @@ p {
 .hero-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
   color: white;
-  min-height: 100dvh;
+  flex: 1;
   display: flex;
   align-items: center;
-  position: relative;
+}
+.hero-section .row {
+  flex-wrap: wrap;
 }
 
 .hero-section::before {
@@ -340,7 +342,7 @@ footer h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-link::after{
+  .nav-link::after {
     width: 0px !important;
   }
 
