@@ -4,7 +4,7 @@
   --secondary-color: #eea94a;
   --accent-color: #0d6efd;
   --text-dark: #333;
-  --text-light: #ffffff;
+  --text-light: #666;
   --border-radius: 12px;
   --transition: all 0.3s ease;
 }
@@ -14,21 +14,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
 }
 
-html,
-body {
+html {
   scroll-behavior: smooth;
-  height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-dark);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
 /* Typography */
@@ -38,14 +33,17 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--text-dark);
   font-weight: 700;
 }
 p {
+  color: var(--text-light);
   font-size: 1rem;
 }
 
 .lead {
   font-size: 1.25rem;
+  color: var(--text-light);
 }
 
 /* Navigation Bar */
@@ -100,12 +98,11 @@ p {
 .hero-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
   color: white;
-  flex: 1;
+  min-height: 100vh;
   display: flex;
   align-items: center;
-}
-.hero-section .row {
-  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-section::before {
@@ -151,6 +148,14 @@ p {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  animation: float 3s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -310,7 +315,6 @@ p {
 
 /* Footer */
 footer {
-  margin-top: auto;
   background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
   border-top: 3px solid var(--secondary-color);
 }
@@ -342,10 +346,6 @@ footer h6 {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .nav-link::after {
-    width: 0px !important;
-  }
-
   .hero-section h1 {
     font-size: 2rem;
   }
@@ -378,6 +378,10 @@ footer h6 {
     font-size: 1.8rem;
   }
 
+  .hero-image {
+    margin-top: 3rem;
+  }
+
   .btn-group {
     flex-direction: column;
   }
@@ -388,10 +392,6 @@ footer h6 {
 }
 
 @media (max-width: 576px) {
-  .nav-link::after {
-    width: 0px !important;
-  }
-
   .hero-section {
     min-height: auto;
     padding: 3rem 1rem;
