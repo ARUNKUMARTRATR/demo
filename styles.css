@@ -80,7 +80,7 @@ p {
 /* Hero Section */
 .hero-section {
   background: linear-gradient(135deg, #1a1a1a 0%, #2d3436 100%);
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
@@ -494,3 +494,4 @@ footer h6 {
     content: none;
   }
 }
+
