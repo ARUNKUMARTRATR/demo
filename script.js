@@ -1,4 +1,5 @@
-// Scroll to top button
+//////////////////////////////////Scroll to top button //////////////////////////////////////////////////
+
 const scrollTopBtn = document.createElement("button");
 scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
 scrollTopBtn.style.cssText = `
@@ -29,7 +30,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-
 scrollTopBtn.addEventListener("mouseenter", () => {
   scrollTopBtn.style.transform = "scale(1.1)";
 });
@@ -38,10 +38,8 @@ scrollTopBtn.addEventListener("mouseleave", () => {
   scrollTopBtn.style.transform = "scale(1)";
 });
 
-
-
 scrollTopBtn.addEventListener("click", () => {
-  smoothScrollToTop(1000); // duration in ms
+  smoothScrollToTop(2000);
 });
 
 function smoothScrollToTop(duration) {
@@ -67,3 +65,4 @@ function smoothScrollToTop(duration) {
   requestAnimationFrame(animate);
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
